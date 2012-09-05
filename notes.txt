@@ -1,0 +1,6 @@
+# Major tasks
+    * Add local storage support
+    * Add CSS
+
+# Minor tasks
+    * Add delete budget item button

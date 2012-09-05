@@ -11,19 +11,23 @@
     </header>
     <div>
         <form method="" action="">
-            <div id="budget_items">
+            <div id="budget_items_div">
                 <!-- Copy this element when creating new budget_items -->
                 <div id="base_budget_item" class="budget_item">
                     <input class="item_text" type="text" placeholder="Value description" />
                     <input class="item_value" type="text" placeholder="0" />
                 </div>
                 <!-- Insert real budget_items here -->
+                <div class="budget_item">
+                    <input class="item_text" type="text" placeholder="Value description" />
+                    <input class="item_value" type="text" placeholder="0" />
+                </div>
             </div>
             <div id="budget_controls">
-                <button id="add_budget_item">Add Budget Item</button>
-                <button id="calculate_button">Calculate Total</button>
+                <input id="add_budget_item" type="button" value="Add Budget Item" />
+                <input id="calculate_button" type="button" value="Calculate Total" />
                 <label>
-                Total: <input type="text" placeholder="0" />
+                Total: <input id="total_text_box" type="text" placeholder="0" />
                 </label>
             </div<
         </form>

@@ -3,8 +3,12 @@
     * Add CSS
 
 # Minor tasks
-    * Add start new budget button
-    * Remove default budget_item as it does not have a delete button
-      Replace it with a new one by calling add_button_item()
+    * Add start new budget button which deletes all budget items and clears
+      the total. Prompt for confirmation first obviously.
 
 # Current task
+
+# Things to remember
+    * There should always be one budget item so the fact that the first
+      one can't be deleted makes sense. It might look less weird when the
+      page gets styled -> i.e. Style accordingly.

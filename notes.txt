@@ -3,4 +3,8 @@
     * Add CSS
 
 # Minor tasks
-    * Add delete budget item button
+    * Add start new budget button
+    * Remove default budget_item as it does not have a delete button
+      Replace it with a new one by calling add_button_item()
+
+# Current task

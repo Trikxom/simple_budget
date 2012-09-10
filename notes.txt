@@ -6,8 +6,6 @@
       and removes the data in localStorage. Prompt for confirmation first obviously.
 
 # Current task
-    * Store the budget total in localStorage, or run calculate_total() on after
-      loading budget_items.
 
 # Things to remember
     * There should always be one budget item so the fact that the first

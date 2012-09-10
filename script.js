@@ -7,6 +7,7 @@ function init() {
     if (old_budget_items != undefined) {
         console.log("found budget_items in local storage");
         budget_items_div.innerHTML = old_budget_items;
+        add_delete_buttton_handlers();
     } else {
         console.log("didn't find any budget_items in local storage");
     }
@@ -24,6 +25,9 @@ function init() {
 
     add_button.onclick = add_budget_item;
     calculate_button.onclick = calculate_total;
+
+    //This needs to be called so a total is shown for loaded budget_items
+    calculate_total()
 } 
 
 function add_budget_item() {
@@ -37,6 +41,7 @@ function add_budget_item() {
     //Add event handler to delete_item_button for this budget_item
     var delete_item_button = new_budget_item.getElementsByClassName("delete_item_button")[0];
     delete_item_button.onclick = delete_item;
+    save(budget_items_div);
 }
 
 function calculate_total() {
@@ -61,7 +66,6 @@ function calculate_total() {
     }
     //Update value of total on screen
     total_text_box.value = new_total;
-    total_text_box.setAttribute("value", new_total);
     save(budget_items_div);
 }
 
@@ -72,4 +76,12 @@ function delete_item(e) {
     var budget_item_to_delete = e.target.parentNode;
     console.log("budget_item_to_delete", budget_item_to_delete);
     budget_items_div.removeChild(budget_item_to_delete);
+    save(budget_items_div);
+}
+
+function add_delete_buttton_handlers() {
+    var delete_buttons = document.getElementsByClassName("delete_item_button");
+    for (var i = 0; i < delete_buttons.length; i++) {
+        delete_buttons[i].onclick = delete_item;
+    }
 }

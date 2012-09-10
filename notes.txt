@@ -2,11 +2,12 @@
     * Add CSS
 
 # Minor tasks
-    * Add start new budget button which deletes all budget items and clears
-      the total. Prompt for confirmation first obviously.
+    * Add start new budget button which deletes all budget items, clears the total
+      and removes the data in localStorage. Prompt for confirmation first obviously.
 
 # Current task
-    * Add local storage support
+    * Store the budget total in localStorage, or run calculate_total() on after
+      loading budget_items.
 
 # Things to remember
     * There should always be one budget item so the fact that the first

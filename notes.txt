@@ -1,5 +1,4 @@
 # Major tasks
-    * Add local storage support
     * Add CSS
 
 # Minor tasks
@@ -7,6 +6,7 @@
       the total. Prompt for confirmation first obviously.
 
 # Current task
+    * Add local storage support
 
 # Things to remember
     * There should always be one budget item so the fact that the first

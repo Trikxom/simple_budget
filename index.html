@@ -13,15 +13,15 @@
         <form method="" action="" autocomplete="off">
             <div id="budget_items_div">
                 <!-- Copy this element when creating new budget_items -->
-                <div id="base_budget_item" class="budget_item">
-                    <input class="item_text" type="text" placeholder="Value description" />
-                    <input class="item_value" type="text" placeholder="0" />
+                <div id="base_budget_item">
+                    <input class="item_text" type="text" placeholder="Value description" value="" />
+                    <input class="item_value" type="text" placeholder="0" value="" />
                     <input class="delete_item_button" type="button" value="Delete this item" />
                 </div>
                 <!-- Insert real budget_items here -->
-                <div class="budget_item">
-                    <input class="item_text" type="text" placeholder="Value description" />
-                    <input class="item_value" type="text" placeholder="0" />
+                <div>
+                    <input class="item_text" type="text" placeholder="Value description" value="" />
+                    <input class="item_value" type="text" placeholder="0" value="" />
                 </div>
             </div>
             <div id="budget_controls">
@@ -33,6 +33,7 @@
             </div>
         </form>
     </div>
+    <script type="text/javascript" src="storage.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

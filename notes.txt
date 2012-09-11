@@ -2,9 +2,9 @@
     * Add CSS
 
 # Minor tasks
-    * Prompt for confirmation before starting new budget
 
 # Current task
+    * Prompt for confirmation before starting new budget
 
 # Things to remember
     * There should always be one budget item so the fact that the first

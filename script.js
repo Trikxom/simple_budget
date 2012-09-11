@@ -18,16 +18,22 @@ function init() {
     var total_text_box = document.getElementById("total_text_box");
     var delete_item_button = document.getElementById("delete_item_button");
     var start_new_budget_button = document.getElementById("start_new_budget");
+    var confirm_button = document.getElementById("confirm_button");
+    var cancel_button = document.getElementById("cancel_button");
 
     console.log("add_button: ", add_button);
     console.log("calculate_button: ", calculate_button);
     console.log("budget_items_div", budget_items_div);
     console.log("base_budget_item", base_budget_item);
     console.log("start_new_budget_button", start_new_budget_button);
+    console.log("confirm_button", confirm_button);
+    console.log("cancel_button", cancel_button);
 
     add_button.onclick = add_budget_item;
     calculate_button.onclick = calculate_total;
-    start_new_budget_button.onclick = start_new_budget;
+    start_new_budget_button.onclick = show_confirm_box;
+    confirm_button.onclick = start_new_budget;
+    cancel_button.onclick = hide_confirm_box;
 
     //This needs to be called so a total is shown for loaded budget_items
     calculate_total()
@@ -98,12 +104,29 @@ function start_new_budget() {
     //Clear everything from the budget_items_div
     budget_items_div.innerHTML = "";
 
-    //Create a starting budget_item with no delete button
-    new_base_budget_item = document.createElement("div");
+    //Replace the base_budget_item
+    var new_base_budget_item = document.createElement("div");
+    new_base_budget_item.setAttribute("id", "base_budget_item");
     new_base_budget_item.innerHTML = old_base_budget_item_html;
-    delete_button = new_base_budget_item.getElementsByClassName("delete_item_button")[0];
-    new_base_budget_item.removeChild(delete_button);
     budget_items_div.appendChild(new_base_budget_item);
 
-    save(budget_items_div);
+    //Create a starting budget_item with no delete button
+    var new_budget_item = document.createElement("div");
+    new_budget_item.innerHTML = old_base_budget_item_html;
+    delete_button = new_budget_item.getElementsByClassName("delete_item_button")[0];
+    new_budget_item.removeChild(delete_button);
+    budget_items_div.appendChild(new_budget_item);
+    hide_confirm_box();
+
+    calculate_total();
+}
+
+function show_confirm_box() {
+    var confirm_box = document.getElementById("confirm_box");
+    confirm_box.className = "alert visible";
+}
+
+function hide_confirm_box() {
+    var confirm_box = document.getElementById("confirm_box");
+    confirm_box.className = "alert";
 }

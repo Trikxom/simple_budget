@@ -5,3 +5,11 @@
 #base_budget_item {
     display:none;
 }
+
+#confirm_box {
+    display:none;
+}
+
+#confirm_box.visible {
+    display:block;
+}

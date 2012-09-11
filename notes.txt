@@ -1,7 +1,9 @@
 # Major tasks
-    * Add CSS
+    * Create layout
+    * Create mobile layout
 
 # Minor tasks
+    * Fix global scope reference issues
 
 # Current task
 

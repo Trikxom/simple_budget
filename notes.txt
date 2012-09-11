@@ -2,9 +2,7 @@
     * Add CSS
 
 # Minor tasks
-    * Calculate total after deleting an item.
-    * Add start new budget button which deletes all budget items, clears the total
-      and removes the data in localStorage. Prompt for confirmation first obviously.
+    * Prompt for confirmation before starting new budget
 
 # Current task
 

@@ -17,14 +17,17 @@ function init() {
     var base_budget_item = document.getElementById("base_budget_item");
     var total_text_box = document.getElementById("total_text_box");
     var delete_item_button = document.getElementById("delete_item_button");
+    var start_new_budget_button = document.getElementById("start_new_budget");
 
     console.log("add_button: ", add_button);
     console.log("calculate_button: ", calculate_button);
     console.log("budget_items_div", budget_items_div);
     console.log("base_budget_item", base_budget_item);
+    console.log("start_new_budget_button", start_new_budget_button);
 
     add_button.onclick = add_budget_item;
     calculate_button.onclick = calculate_total;
+    start_new_budget_button.onclick = start_new_budget;
 
     //This needs to be called so a total is shown for loaded budget_items
     calculate_total()
@@ -76,6 +79,8 @@ function delete_item(e) {
     var budget_item_to_delete = e.target.parentNode;
     console.log("budget_item_to_delete", budget_item_to_delete);
     budget_items_div.removeChild(budget_item_to_delete);
+    //Refresh total to reflect the removal of an item
+    calculate_total()
     save(budget_items_div);
 }
 
@@ -84,4 +89,21 @@ function add_delete_buttton_handlers() {
     for (var i = 0; i < delete_buttons.length; i++) {
         delete_buttons[i].onclick = delete_item;
     }
+}
+
+function start_new_budget() {
+    old_base_budget_item_html = document.getElementById("base_budget_item").innerHTML;
+    budget_items_div = document.getElementById("budget_items_div");
+
+    //Clear everything from the budget_items_div
+    budget_items_div.innerHTML = "";
+
+    //Create a starting budget_item with no delete button
+    new_base_budget_item = document.createElement("div");
+    new_base_budget_item.innerHTML = old_base_budget_item_html;
+    delete_button = new_base_budget_item.getElementsByClassName("delete_item_button")[0];
+    new_base_budget_item.removeChild(delete_button);
+    budget_items_div.appendChild(new_base_budget_item);
+
+    save(budget_items_div);
 }

@@ -1,26 +1,97 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+header {
+    width:100%;
+    height:3em;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:#eee;
+    border-bottom:1px solid #ccc;
+    overflow:hidden;
+    text-align:center;
+    line-height:35px;
+}
+
+header a.brand {
+    font-size:1.5em;
+    color:#888877;
+}
+
+header .btn {
+    margin:6px 5px 0px;
+}
+
+header #about_button {
+    float:left;
+}
+
+header #start_new_budget {
+    float:right;
+}
+
 #main {
-    margin:60px 0 20px;
+    margin:3em 0 3em; /* Make space for fixed top and bottom bars */
 }
 
 #confirm_box {
     display:none;
+    padding-top:9px;
 }
 
 #confirm_box.visible {
     display:block;
 }
 
-#budget_items_div div {
-    margin-bottom:10px;
+#budget_items_div {
+    text-align:left;
+}
+
+#budget_items_div * {
+    margin-right:0;
+    margin-left:0;
+    padding-right:0;
+    padding-left:5px; /* So items aren't pressed right against the edge of the screen */
+    padding-top:9px;
 }
 
 #base_budget_item {
     display:none;
 }
 
-#budget_items_div .delete_item_button {
+.budget_item .item_text {
+    width:60%;
+}
+
+.budget_item .item_value {
+    width:20%;
+}
+
+.budget_item .delete_item_button {
+    width:2em;
     /* So it lines up right */
     margin-top:-9px;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+.budget_item.no_delete_button .delete_item_button {
+    visibility:hidden;
+}
+
+#budget_controls {
+    width:100%;
+    height:3em;
+    position:fixed;
+    bottom:0;
+    left:0;
+    background-color:#eee;
+    border-bottom:1px solid #ccc;
+    overflow:hidden;
+    text-align:center;
 }
 
 #budget_controls label {
@@ -29,4 +100,5 @@
 
 #budget_controls label input {
     width:5em;
+    margin-top:9px;
 }

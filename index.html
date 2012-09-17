@@ -14,22 +14,18 @@
     
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
+    <header>
                 <a class="brand" href="#">Simple Budget</a>
-                <span class="navbar-text">The simple way to make a budget.</span>
-                <input id="start_new_budget" class="btn btn-warning navbar-btn" type="button" value="New" />
-            </div><!-- End container -->
-        </div><!-- End navbar-inner -->
-    </div><!-- End navbar -->
+                <input id="about_button" class="btn btn-info" type="button" value="About" />
+                <input id="start_new_budget" class="btn btn-warning" type="button" value="New" />
+    </header>
     <div id="main">
         <form method="" action="" autocomplete="off">
             <div id="confirm_box" class="alert">
                 <p>Are you sure you want to start a new budget?</p>
                 <p>You will lose any data you have in the current budget.</p>
                 <input id="cancel_button" class="btn" type="button" value="Cancel" />
-                <input id="confirm_button" class="btn btn-danger" type="button" value="Yes, delete everything in this budget!" />
+                <input id="confirm_button" class="btn btn-danger" type="button" value="Yes, delete everything!" />
             </div><!-- End confirm box -->
 
             <div id="budget_items_div">
@@ -40,7 +36,7 @@
                     <a class="delete_item_button btn btn-danger"><i class="icon-remove icon-white"></i></a>
                 </div>
                 <!-- Insert real budget_items here -->
-                <div>
+                <div class="budget_item">
                     <input class="item_text" type="text" placeholder="Value description" value="" />
                     <input class="item_value" type="text" placeholder="0" value="" />
                 </div>

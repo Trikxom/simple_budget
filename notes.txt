@@ -1,12 +1,10 @@
 # Major tasks
-    * Create mobile layout
     * Integrate jQuery
 
 # Minor tasks
     * Fix global scope reference issues - using jQuery.
 
 # Current task
-    * Create layout
 
 # Things to remember
     * There should always be one budget item so the fact that the first

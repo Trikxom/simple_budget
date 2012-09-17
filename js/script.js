@@ -113,8 +113,9 @@ function start_new_budget() {
     //Create a starting budget_item with no delete button
     var new_budget_item = document.createElement("div");
     new_budget_item.innerHTML = old_base_budget_item_html;
-    delete_button = new_budget_item.getElementsByClassName("delete_item_button")[0];
-    new_budget_item.removeChild(delete_button);
+    //delete_button = new_budget_item.getElementsByClassName("delete_item_button")[0];
+    //new_budget_item.removeChild(delete_button);
+    new_budget_item.className = "budget_item no_delete_button";
     budget_items_div.appendChild(new_budget_item);
     hide_confirm_box();
 
@@ -124,6 +125,8 @@ function start_new_budget() {
 function show_confirm_box() {
     var confirm_box = document.getElementById("confirm_box");
     confirm_box.className = "alert visible";
+    //Scroll to top of page so alert can be seen
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 function hide_confirm_box() {

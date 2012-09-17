@@ -58,6 +58,7 @@ function add_budget_item() {
     //Add event handler to delete_item_button for this budget_item
     var delete_item_button = new_budget_item.getElementsByClassName("delete_item_button")[0];
     delete_item_button.onclick = delete_item;
+    window.scrollTo(0,document.body.scrollHeight);
     save(budget_items_div);
 }
 

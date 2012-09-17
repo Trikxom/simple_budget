@@ -1,9 +1,11 @@
 # Major tasks
     * Integrate jQuery (prob do a full rewrite)
+    * Add animations with jQuery to make the app seem more responsive
 
 # Minor tasks
     * Fix global scope reference issues - using jQuery.
-    * Scroll to bottom of page when adding a budget_item
+    * Scroll to top when about button is clicked or come up with better
+      popup implementation so scrolling is not required.
 
 # Current task
 

@@ -3,7 +3,8 @@
 
 # Minor tasks
     * Fix global scope reference issues - using jQuery.
-    * Add caching support
+    * Fix scrolling down overlap issue - budget_items are scrolling over
+      the header
 
 # Current task
 

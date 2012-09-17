@@ -91,7 +91,14 @@ function delete_item(e) {
     //Get the budget_item containing the button that was just clicked
     //and delete it
     var budget_item_to_delete = e.target.parentNode;
-    console.log("budget_item_to_delete", budget_item_to_delete);
+    console.log("You clicked a ", budget_item_to_delete.nodeName);
+
+    while(budget_item_to_delete.nodeName != "DIV") {
+        budget_item_to_delete = budget_item_to_delete.parentNode;
+        console.log("Moving to parent: ", budget_item_to_delete.nodeName);
+    }
+
+    console.log("Deleting: ", budget_item_to_delete);
     budget_items_div.removeChild(budget_item_to_delete);
     //Refresh total to reflect the removal of an item
     calculate_total()

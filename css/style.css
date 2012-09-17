@@ -14,6 +14,8 @@ header {
     overflow:hidden;
     text-align:center;
     line-height:35px;
+    /* So budget_items scroll under the header */
+    z-index:5;
 }
 
 header a.brand {

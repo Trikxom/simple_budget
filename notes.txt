@@ -3,8 +3,7 @@
 
 # Minor tasks
     * Fix global scope reference issues - using jQuery.
-    * Fix scrolling down overlap issue - budget_items are scrolling over
-      the header
+    * Scroll to bottom of page when adding a budget_item
 
 # Current task
 

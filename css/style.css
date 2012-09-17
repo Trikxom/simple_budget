@@ -2,6 +2,14 @@
     margin:60px 0 20px;
 }
 
+#confirm_box {
+    display:none;
+}
+
+#confirm_box.visible {
+    display:block;
+}
+
 #budget_items_div div {
     margin-bottom:10px;
 }
@@ -10,10 +18,15 @@
     display:none;
 }
 
-#confirm_box {
-    display:none;
+#budget_items_div .delete_item_button {
+    /* So it lines up right */
+    margin-top:-9px;
 }
 
-#confirm_box.visible {
-    display:block;
+#budget_controls label {
+    display:inline;
+}
+
+#budget_controls label input {
+    width:5em;
 }

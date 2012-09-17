@@ -10,6 +10,8 @@ function init() {
         add_delete_buttton_handlers();
     } else {
         console.log("didn't find any budget_items in local storage");
+        //Add the first budget_item
+        add_budget_item_without_delete_button();
     }
 
     var add_button = document.getElementById("add_budget_item");
@@ -104,28 +106,31 @@ function add_delete_buttton_handlers() {
 }
 
 function start_new_budget() {
+    //Save the old base_budget_item before it gets deleted
     old_base_budget_item_html = document.getElementById("base_budget_item").innerHTML;
     budget_items_div = document.getElementById("budget_items_div");
 
     //Clear everything from the budget_items_div
     budget_items_div.innerHTML = "";
 
-    //Replace the base_budget_item
+    //Create a new base_budget_item
     var new_base_budget_item = document.createElement("div");
     new_base_budget_item.setAttribute("id", "base_budget_item");
     new_base_budget_item.innerHTML = old_base_budget_item_html;
     budget_items_div.appendChild(new_base_budget_item);
 
-    //Create a starting budget_item with no delete button
-    var new_budget_item = document.createElement("div");
-    new_budget_item.innerHTML = old_base_budget_item_html;
-    //delete_button = new_budget_item.getElementsByClassName("delete_item_button")[0];
-    //new_budget_item.removeChild(delete_button);
-    new_budget_item.className = "budget_item no_delete_button";
-    budget_items_div.appendChild(new_budget_item);
+    add_budget_item_without_delete_button();
     hide_confirm_box();
-
     calculate_total();
+}
+
+function add_budget_item_without_delete_button() {
+    //Create a starting budget_item
+    var new_budget_item = document.createElement("div");
+    new_budget_item.innerHTML = document.getElementById("base_budget_item").innerHTML;
+    //Give it the no_delete_button class so the delete button can be hidden
+    new_budget_item.className = "budget_item no_delete_button";
+    document.getElementById("budget_items_div").appendChild(new_budget_item);
 }
 
 function show_confirm_box() {

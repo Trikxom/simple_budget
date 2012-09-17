@@ -3,7 +3,7 @@
 
 # Minor tasks
     * Fix global scope reference issues - using jQuery.
-    * Make layout look better on desktops
+    * Add caching support
 
 # Current task
 

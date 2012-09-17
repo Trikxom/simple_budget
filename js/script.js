@@ -20,6 +20,8 @@ function init() {
     var start_new_budget_button = document.getElementById("start_new_budget");
     var confirm_button = document.getElementById("confirm_button");
     var cancel_button = document.getElementById("cancel_button");
+    var about_button = document.getElementById("about_button");
+    var hide_about_box_button = document.getElementById("hide_about_box_button");
 
     console.log("add_button: ", add_button);
     console.log("calculate_button: ", calculate_button);
@@ -28,12 +30,16 @@ function init() {
     console.log("start_new_budget_button", start_new_budget_button);
     console.log("confirm_button", confirm_button);
     console.log("cancel_button", cancel_button);
+    console.log("about_button", about_button);
+    console.log("hide_about_box_button", hide_about_box_button);
 
     add_button.onclick = add_budget_item;
     calculate_button.onclick = calculate_total;
     start_new_budget_button.onclick = show_confirm_box;
     confirm_button.onclick = start_new_budget;
     cancel_button.onclick = hide_confirm_box;
+    about_button.onclick = show_about_box;
+    hide_about_box_button.onclick = hide_about_box;
 
     //This needs to be called so a total is shown for loaded budget_items
     calculate_total()
@@ -125,6 +131,7 @@ function start_new_budget() {
 function show_confirm_box() {
     var confirm_box = document.getElementById("confirm_box");
     confirm_box.className = "alert visible";
+    document.getElementById("start_new_budget").onclick = hide_confirm_box;
     //Scroll to top of page so alert can be seen
     document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
@@ -132,4 +139,17 @@ function show_confirm_box() {
 function hide_confirm_box() {
     var confirm_box = document.getElementById("confirm_box");
     confirm_box.className = "alert";
+    document.getElementById("start_new_budget").onclick = show_confirm_box;
+}
+
+function show_about_box() {
+    var about_box = document.getElementById("about_box");
+    about_box.className = "visible";
+    document.getElementById("about_button").onclick = hide_about_box;
+}
+
+function hide_about_box() {
+    var about_box = document.getElementById("about_box");
+    about_box.className = "";
+    document.getElementById("about_button").onclick = show_about_box;
 }

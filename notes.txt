@@ -1,5 +1,5 @@
 # Major tasks
-    * Integrate jQuery
+    * Integrate jQuery (prob do a full rewrite)
 
 # Minor tasks
     * Fix global scope reference issues - using jQuery.

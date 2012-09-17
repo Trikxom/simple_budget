@@ -39,23 +39,24 @@ header #start_new_budget {
     position:relative;
 }
 
-#about_box {
+.popup_box {
     position:absolute;
     width:100%;
+    padding-bottom:10px;
+    display:none;
+}
+
+#about_box {
     border:1px solid #999;
     background-color:#ccc;
-    padding-bottom:15px;
-    display:none;
 
 }
 
 #confirm_box {
-    position:absolute;
-    width:100%;
+    padding:10px 0;
     border:1px solid #dCd8c3;
-    padding-bottom:10px;
-    padding-top:9px;
-    display:none;
+    background-color:#fCf8e3;
+    font-weight:bold;
 
 }
 

@@ -141,27 +141,31 @@ function add_budget_item_without_delete_button() {
 }
 
 function show_confirm_box() {
+    console.log("showing confirm box");
     var confirm_box = document.getElementById("confirm_box");
-    confirm_box.className = "alert visible";
+    confirm_box.className = "popup_box visible";
     document.getElementById("start_new_budget").onclick = hide_confirm_box;
     //Scroll to top of page so alert can be seen
     document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 function hide_confirm_box() {
+    console.log("hiding confirm box");
     var confirm_box = document.getElementById("confirm_box");
-    confirm_box.className = "alert";
+    confirm_box.className = "popup_box";
     document.getElementById("start_new_budget").onclick = show_confirm_box;
 }
 
 function show_about_box() {
+    console.log("showing about box");
     var about_box = document.getElementById("about_box");
-    about_box.className = "visible";
+    about_box.className = "popup_box visible";
     document.getElementById("about_button").onclick = hide_about_box;
 }
 
 function hide_about_box() {
+    console.log("hiding about box");
     var about_box = document.getElementById("about_box");
-    about_box.className = "";
+    about_box.className = "popup_box";
     document.getElementById("about_button").onclick = show_about_box;
 }

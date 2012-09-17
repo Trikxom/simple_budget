@@ -1,13 +1,16 @@
 # Major tasks
-    * Create layout
     * Create mobile layout
+    * Integrate jQuery
 
 # Minor tasks
-    * Fix global scope reference issues
+    * Fix global scope reference issues - using jQuery.
 
 # Current task
+    * Create layout
 
 # Things to remember
     * There should always be one budget item so the fact that the first
       one can't be deleted makes sense. It might look less weird when the
       page gets styled -> i.e. Style accordingly.
+    * When adding in jQuery, start by just just using it for selecting
+      elements. Then work on using some built-in methods for event handling.

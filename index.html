@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Budget</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
@@ -13,12 +14,24 @@
     
 </head>
 <body>
-    <header>
-        <h1>Simple Budget</h1>
-        <p class="lead">The easy way to make a budget!</p>
-    </header>
-    <div>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="#">Simple Budget</a>
+                <span class="navbar-text">The simple way to make a budget.</span>
+                <input id="start_new_budget" class="btn btn-warning navbar-btn" type="button" value="New" />
+            </div><!-- End container -->
+        </div><!-- End navbar-inner -->
+    </div><!-- End navbar -->
+    <div id="main">
         <form method="" action="" autocomplete="off">
+            <div id="confirm_box" class="alert">
+                <p>Are you sure you want to start a new budget?</p>
+                <p>You will lose any data you have in the current budget.</p>
+                <input id="cancel_button" class="btn" type="button" value="Cancel" />
+                <input id="confirm_button" class="btn btn-danger" type="button" value="Yes, delete everything in this budget!" />
+            </div><!-- End confirm box -->
+
             <div id="budget_items_div">
                 <!-- Copy this element when creating new budget_items -->
                 <div id="base_budget_item">
@@ -31,23 +44,17 @@
                     <input class="item_text" type="text" placeholder="Value description" value="" />
                     <input class="item_value" type="text" placeholder="0" value="" />
                 </div>
-            </div>
-            <div id="confirm_box" class="alert">
-                <p>Are you sure you want to start a new budget?</p>
-                <p>You will lose any data you have in the current budget.</p>
-                <input id="cancel_button" class="btn" type="button" value="Cancel" />
-                <input id="confirm_button" class="btn btn-danger" type="button" value="Yes, delete everything in this budget!" />
-            </div>
+            </div><!-- End budget items div -->
+
             <div id="budget_controls">
                 <input id="add_budget_item" class="btn btn-primary" type="button" value="Add Budget Item" />
                 <input id="calculate_button" class="btn btn-success" type="button" value="Calculate Total" />
                 <label>
                 Total: <input id="total_text_box" type="text" placeholder="0" />
                 </label>
-                <input id="start_new_budget" class="btn btn-warning" type="button" value="Start A New Budget" />
-            </div>
+            </div><!-- End button controls -->
         </form>
-    </div>
+    </div><!-- End main -->
     <script type="text/javascript" src="js/storage.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>

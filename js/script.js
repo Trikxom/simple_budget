@@ -30,7 +30,17 @@ $(document).ready(function() {
 function start_new_budget() {
     console.log("confirm new budget button clicked");
     //code for starting a new budget should go here
+    $(".budget_item").each(function(){
+        if (!$(this).hasClass("no_delete_button")) {
+            remove_budget_item($(this));
+        }
+    });
     hide_new_budget_box();
+}
+
+function remove_budget_item(budget_item) {
+    console.log("removing budget item");
+    budget_item.remove();
 }
 
 function show_new_budget_box() {

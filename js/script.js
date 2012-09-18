@@ -96,6 +96,11 @@ function add_budget_item(no_delete_button) {
     if (no_delete_button) {
         console.log("delete button not wanted");
         new_budget_item.addClass("no_delete_button");
+    } else {
+        $(".delete_item_button", new_budget_item).click(function(){
+            console.log("delete item button clicked");
+            remove_budget_item(new_budget_item);
+        });
     }
     $("#budget_items").append(new_budget_item);
 }

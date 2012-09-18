@@ -47,8 +47,10 @@ function start_new_budget() {
     });
     add_budget_item(true);
     hide_new_budget_box();
-    //Reset the budget total
+    //reset the budget total
     update_total(0);
+    //clear the localStorage
+    $.totalStorage.deleteItem("budget_items");
 }
 
 function remove_budget_item(budget_item) {

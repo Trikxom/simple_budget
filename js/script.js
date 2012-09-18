@@ -30,6 +30,7 @@ $(document).ready(function() {
     $("#calculate_button").click(function(){
         console.log("calculate button clicked");
         calculate_total();
+        save_budget_items();
     });
     //End calulate button stuff
 });
@@ -137,4 +138,16 @@ function calculate_total() {
 
 function update_total(new_total) {
     $("#total_text_box").val(new_total);
+}
+
+function save_budget_items() {
+    var budget_items = [];
+    $(".budget_item").each(function(){
+        budget_items.push({
+            "text": $(".item_text", $(this)).val(),
+            "value": $(".item_value", $(this)).val()
+        });
+    });
+    console.log("number of items to save: ", budget_items.length);
+    $.totalStorage('budget_items', budget_items);
 }

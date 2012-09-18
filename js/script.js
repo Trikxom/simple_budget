@@ -2,6 +2,8 @@ $(document).ready(function() {
     console.log("Ready for action");
     //New button stuff
     $("#new_budget_button").click(show_new_budget_box);
+    $("#cancel_new_budget_button").click(hide_new_budget_box);
+    $("#confirm_new_budget_button").click(start_new_budget);
     //End new button stuff
 
     //About button stuff
@@ -12,6 +14,8 @@ $(document).ready(function() {
     });
     //End about button stuff
 });
+
+function start_new_budget() {}
 
 function show_new_budget_box() {
     console.log("new budget button clicked");

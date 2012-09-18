@@ -2,7 +2,11 @@ $(document).ready(function() {
     console.log("Ready for action");
 
     //Init
-    add_budget_item(true);
+    var budget_items_loaded = load_budget_items();
+    if (!budget_items_loaded) {
+        //Put in a default budget item instead
+        add_budget_item(true);
+    }
     //End init
 
     //New button stuff
@@ -129,7 +133,7 @@ function calculate_total() {
     var total = 0;
 
     $(".budget_item .item_value").each(function(){
-        console.log("item found");
+        console.log("adding item to total");
         total += parseInt($(this).val());
     });
 
@@ -142,12 +146,34 @@ function update_total(new_total) {
 
 function save_budget_items() {
     var budget_items = [];
+
     $(".budget_item").each(function(){
         budget_items.push({
             "text": $(".item_text", $(this)).val(),
             "value": $(".item_value", $(this)).val()
         });
     });
+
     console.log("number of items to save: ", budget_items.length);
     $.totalStorage('budget_items', budget_items);
+}
+
+function load_budget_items() {
+    var budget_items = $.totalStorage("budget_items");
+
+    if (budget_items != null) {
+        console.log("number of items to load: ", budget_items.length);
+        for (var i = 0; i < budget_items.length; i++) {
+            var new_budget_item = create_budget_item();
+            $(".item_text", new_budget_item).val(budget_items[i].text);
+            $(".item_value", new_budget_item).val(budget_items[i].value);
+            //if i is 0, it's the first budget item, that means it should
+            //have no delete button
+            add_budget_item(i == 0, new_budget_item);
+        }
+        return true;
+    } else {
+        console.log("no items to load");
+        return false;
+    }
 }

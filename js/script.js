@@ -25,17 +25,25 @@ $(document).ready(function() {
         add_budget_item();
     });
     //End add button stuff
+
+    //Calculate button stuff
+    $("#calculate_button").click(function(){
+        console.log("calculate button clicked");
+        calculate_total();
+    });
+    //End calulate button stuff
 });
 
 function start_new_budget() {
     console.log("confirm new budget button clicked");
     //code for starting a new budget should go here
     $(".budget_item").each(function(){
-        if (!$(this).hasClass("no_delete_button")) {
-            remove_budget_item($(this));
-        }
+        remove_budget_item($(this));
     });
+    add_budget_item(true);
     hide_new_budget_box();
+    //Reset the budget total
+    update_total(0);
 }
 
 function remove_budget_item(budget_item) {
@@ -113,4 +121,20 @@ function create_budget_item() {
     new_budget_item.removeAttr("id");
     new_budget_item.addClass("budget_item");
     return new_budget_item;
+}
+
+function calculate_total() {
+    console.log("calculating total");
+    var total = 0;
+
+    $(".budget_item .item_value").each(function(){
+        console.log("item found");
+        total += parseInt($(this).val());
+    });
+
+    update_total(total);
+}
+
+function update_total(new_total) {
+    $("#total_text_box").val(new_total);
 }

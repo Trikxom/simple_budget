@@ -1,5 +1,10 @@
 $(document).ready(function() {
     console.log("Ready for action");
+
+    //Init
+    add_budget_item(true);
+    //End init
+
     //New button stuff
     $("#new_budget_button").click(show_new_budget_box);
     $("#cancel_new_budget_button").click(hide_new_budget_box);
@@ -13,9 +18,20 @@ $(document).ready(function() {
         hide_about_box();
     });
     //End about button stuff
+
+    //Add button stuff
+    $("#add_budget_item").click(function(){
+        console.log("add budget item button clicked");
+        add_budget_item();
+    });
+    //End add button stuff
 });
 
-function start_new_budget() {}
+function start_new_budget() {
+    console.log("confirm new budget button clicked");
+    //code for starting a new budget should go here
+    hide_new_budget_box();
+}
 
 function show_new_budget_box() {
     console.log("new budget button clicked");
@@ -55,4 +71,21 @@ function hide_about_box() {
     //The next time the user clicks the about button, show the about box
     $("#about_button").unbind("click");
     $("#about_button").click(show_about_box)
+}
+
+function add_budget_item(no_delete_button) {
+    //Default value is false, delete button is wanted
+    no_delete_button = no_delete_button || false;
+
+    console.log("adding a budget item");
+
+    //Create a new budget item based of the base budget item
+    var new_budget_item = $("#base_budget_item").clone();
+    new_budget_item.removeAttr("id");
+    new_budget_item.addClass("budget_item");
+    if (no_delete_button) {
+        console.log("delete button not wanted");
+        new_budget_item.addClass("no_delete_button");
+    }
+    $("#budget_items").append(new_budget_item);
 }

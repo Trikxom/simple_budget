@@ -31,7 +31,7 @@ header #about_button {
     float:left;
 }
 
-header #start_new_budget {
+header #new_budget_button {
     float:right;
 }
 
@@ -54,7 +54,7 @@ header #start_new_budget {
 
 }
 
-#confirm_box {
+#new_budget_box {
     padding:10px 0;
     border:1px solid #dCd8c3;
     background-color:#fCf8e3;
@@ -62,7 +62,7 @@ header #start_new_budget {
 
 }
 
-#confirm_box.visible, #about_box.visible {
+#new_budget_box.visible, #about_box.visible {
     display:block;
 }
 

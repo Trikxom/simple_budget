@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <title>Simple Budget</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -13,13 +12,13 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
+    <title>Simple Budget</title>
 </head>
 <body>
     <header>
                 <a class="brand" href="#">Simple Budget</a>
                 <input id="about_button" class="btn btn-info" type="button" value="About" />
-                <input id="start_new_budget" class="btn btn-warning" type="button" value="New" />
+                <input id="new_budget_button" class="btn btn-warning" type="button" value="New" />
     </header>
     <div id="main">
         <form method="" action="" autocomplete="off">
@@ -29,11 +28,11 @@
                 <p>Created by <a href="http://cs1.ucc.ie/~kjd1">Kevin Dunleavy</a> &copy; 2012.</p>
                 <input id="hide_about_box_button" class="btn btn-info" type="button" value="Close" />
             </div><!-- End about_box -->
-            <div id="confirm_box" class="popup_box">
+            <div id="new_budget_box" class="popup_box">
                 <p>Are you sure you want to start a new budget?</p>
                 <p>You will lose any data you have in the current budget.</p>
-                <input id="cancel_button" class="btn" type="button" value="Cancel" />
-                <input id="confirm_button" class="btn btn-danger" type="button" value="Yes, delete everything!" />
+                <input id="cancel_new_budget_button" class="btn" type="button" value="Cancel" />
+                <input id="confirm_new_budget_button" class="btn btn-danger" type="button" value="Yes, delete everything!" />
             </div><!-- End confirm box -->
 
             <div id="budget_items_div">

@@ -83,24 +83,34 @@ function hide_about_box() {
     $("#about_button").click(show_about_box)
 }
 
-function add_budget_item(no_delete_button) {
+function add_budget_item(no_delete_button, new_budget_item) {
     //Default value is false, delete button is wanted
     no_delete_button = no_delete_button || false;
+    //Default value is a plain budget item
+    //This allows for adding budget items that have already been created
+    //and possibly populated with data
+    new_budget_item = new_budget_item || create_budget_item();
 
     console.log("adding a budget item");
 
-    //Create a new budget item based of the base budget item
-    var new_budget_item = $("#base_budget_item").clone();
-    new_budget_item.removeAttr("id");
-    new_budget_item.addClass("budget_item");
     if (no_delete_button) {
         console.log("delete button not wanted");
         new_budget_item.addClass("no_delete_button");
     } else {
+        console.log("delete button wanted");
+        //Add event handler to delete item button in the new budget item
         $(".delete_item_button", new_budget_item).click(function(){
             console.log("delete item button clicked");
             remove_budget_item(new_budget_item);
         });
     }
+
     $("#budget_items").append(new_budget_item);
+}
+
+function create_budget_item() {
+    var new_budget_item = $("#base_budget_item").clone();
+    new_budget_item.removeAttr("id");
+    new_budget_item.addClass("budget_item");
+    return new_budget_item;
 }

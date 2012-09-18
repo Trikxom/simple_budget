@@ -5,8 +5,6 @@
 # Minor tasks
     * Fix global scope reference issues - using jQuery.
     * Add clear button to first budget item since it cannot be deleted.
-    * Scroll to top when about button is clicked or come up with better
-      popup implementation so scrolling is not required.
 
 # Current task
 

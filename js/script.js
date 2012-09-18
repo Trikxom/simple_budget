@@ -162,6 +162,7 @@ function show_about_box() {
     var about_box = document.getElementById("about_box");
     about_box.className = "popup_box visible";
     document.getElementById("about_button").onclick = hide_about_box;
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 function hide_about_box() {

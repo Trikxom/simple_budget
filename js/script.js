@@ -34,10 +34,7 @@ $(document).ready(function() {
     //Add button stuff
     $("#add_budget_item").click(function(){
         console.log("add budget item button clicked");
-        add_budget_item();
-        //This causes the page to scroll down to the new budget item
-        //and allows you to start typing right after adding a new item
-        focus_on(new_budget_item.find(".item_text"));
+        add_budget_item(false, false, true);
     });
     //End add button stuff
 
@@ -116,13 +113,15 @@ function hide_about_box(resume_scroll) {
     $("#about_button").click(show_about_box)
 }
 
-function add_budget_item(no_delete_button, new_budget_item) {
+function add_budget_item(no_delete_button, new_budget_item, focus_wanted) {
     //Default value is false, delete button is wanted
     no_delete_button = no_delete_button || false;
     //Default value is a plain budget item
     //This allows for adding budget items that have already been created
     //and possibly populated with data
     new_budget_item = new_budget_item || create_budget_item();
+    //Default value is false, no focus wanted
+    focus_wanted = focus_wanted || false;
 
     console.log("adding a budget item");
 
@@ -142,6 +141,12 @@ function add_budget_item(no_delete_button, new_budget_item) {
     }
 
     $("#budget_items").append(new_budget_item);
+    if (focus_wanted) {
+        console.log("focus wanted");
+        //This causes the page to scroll down to the new budget item
+        //and allows you to start typing right after adding a new item
+        focus_on(new_budget_item.find(".item_text"));
+    }
 }
 
 function create_budget_item() {

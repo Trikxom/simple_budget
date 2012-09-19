@@ -63,9 +63,9 @@ function start_new_budget() {
 
 function show_new_budget_box() {
     console.log("new budget button clicked");
-    $("#new_budget_box").slideDown("slow");
+    $("#new_budget_box").slideDown("fast");
     //Save previous scrollTop value so we can scroll back to it after
-    var old_scrollTop = $("html, body").scrollTop();
+    var old_scrollTop = $("html, body").scrollTop() || $(window).scrollTop();
     console.log("old scrollTop: ", old_scrollTop);
     //Scroll to top so the about box can be seen
     scroll_to_top();
@@ -79,7 +79,7 @@ function show_new_budget_box() {
 }
 
 function hide_new_budget_box(resume_scroll) {
-    $("#new_budget_box").slideUp("slow");
+    $("#new_budget_box").slideUp("fast");
     scroll_to(resume_scroll);
 
     //Next time the new budget button is clicked, show the new budget box
@@ -89,7 +89,7 @@ function hide_new_budget_box(resume_scroll) {
 
 function show_about_box() {
     console.log("about button clicked");
-    $("#about_box").slideDown("slow");
+    $("#about_box").slideDown("fast");
     //Save previous scrollTop value so we can scroll back to it after
     var old_scrollTop = $("html, body").scrollTop() || $(window).scrollTop();
     console.log("old scrollTop: ", old_scrollTop);
@@ -105,7 +105,7 @@ function show_about_box() {
 }
 
 function hide_about_box(resume_scroll) {
-    $("#about_box").slideUp("slow");
+    $("#about_box").slideUp("fast");
     scroll_to(resume_scroll);
 
     //The next time the user clicks the about button, show the about box
@@ -146,7 +146,7 @@ function add_budget_item(no_delete_button, new_budget_item, focus_wanted) {
     $("#budget_items").append(new_budget_item);
 
     //Animate new item into view
-    new_budget_item.show("slow");
+    new_budget_item.show("fast");
 
     //Add focus to button if required
     if (focus_wanted) {
@@ -171,7 +171,7 @@ function clear_budget_item(budget_item) {
 
 function remove_budget_item(budget_item) {
     console.log("removing budget item");
-    budget_item.hide("slow", function(){
+    budget_item.hide("fast", function(){
         budget_item.remove();
     });
 }
@@ -234,12 +234,8 @@ function scroll_to_top() {
 }
 
 function scroll_to(place_to_scroll_to) {
-    console.log("window scrollTop " + $(window).scrollTop());
-    console.log("html, body scrollTop " + $("html, body").scrollTop());
-    console.log("html scrollTop " + $("html").scrollTop());
-    console.log("body scrollTop " + $("body").scrollTop());
     console.log("scrolling to: " + place_to_scroll_to);
-    $("html, body").animate({scrollTop:place_to_scroll_to});
+    $("html, body").animate({scrollTop:place_to_scroll_to}, "fast");
 }
 
 function focus_on(item_to_focus_on) {

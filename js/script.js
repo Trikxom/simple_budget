@@ -63,7 +63,7 @@ function start_new_budget() {
 
 function show_new_budget_box() {
     console.log("new budget button clicked");
-    $("#new_budget_box").show();
+    $("#new_budget_box").slideDown("slow");
     //Save previous scrollTop value so we can scroll back to it after
     var old_scrollTop = $("html, body").scrollTop();
     console.log("old scrollTop: ", old_scrollTop);
@@ -79,7 +79,7 @@ function show_new_budget_box() {
 }
 
 function hide_new_budget_box(resume_scroll) {
-    $("#new_budget_box").hide();
+    $("#new_budget_box").slideUp("slow");
     scroll_to(resume_scroll);
 
     //Next time the new budget button is clicked, show the new budget box
@@ -89,7 +89,7 @@ function hide_new_budget_box(resume_scroll) {
 
 function show_about_box() {
     console.log("about button clicked");
-    $("#about_box").show();
+    $("#about_box").slideDown("slow");
     //Save previous scrollTop value so we can scroll back to it after
     var old_scrollTop = $("html, body").scrollTop() || $(window).scrollTop();
     console.log("old scrollTop: ", old_scrollTop);
@@ -105,7 +105,7 @@ function show_about_box() {
 }
 
 function hide_about_box(resume_scroll) {
-    $("#about_box").hide();
+    $("#about_box").slideUp("slow");
     scroll_to(resume_scroll);
 
     //The next time the user clicks the about button, show the about box

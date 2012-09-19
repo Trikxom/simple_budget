@@ -146,8 +146,11 @@ function calculate_total() {
     var total = 0;
 
     $(".budget_item .item_value").each(function(){
-        console.log("adding item to total");
-        total += parseInt($(this).val());
+        var next_value = parseInt($(this).val());
+        if (!isNaN(next_value)) {
+            console.log("adding item to total");
+            total += next_value;
+        }
     });
 
     update_total(total);

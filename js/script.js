@@ -52,7 +52,6 @@ function start_new_budget() {
     $(".budget_item").each(function(){
         remove_budget_item($(this));
     });
-    add_budget_item();
     hide_new_budget_box();
     //reset the budget total
     update_total(0);
@@ -167,8 +166,8 @@ function remove_budget_item(budget_item) {
             budget_item.remove();
         });
     } else {
-        console.log("last budget item, starting new budget");
-        start_new_budget();
+        console.log("last budget item, clear item instead of deleting");
+        clear_budget_item(budget_item);
     }
 }
 

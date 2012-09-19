@@ -163,7 +163,9 @@ function clear_budget_item(budget_item) {
 
 function remove_budget_item(budget_item) {
     console.log("removing budget item");
-    budget_item.remove();
+    budget_item.hide("slow", function(){
+        budget_item.remove();
+    });
 }
 
 function calculate_total() {

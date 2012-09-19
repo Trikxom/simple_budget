@@ -2,11 +2,6 @@
     * Add animations with jQuery to make the app seem more responsive
 
 # Minor tasks
-    * Add clear button to first budget item since it cannot be deleted.
-    * Add localStorage support -> look into totalStorage.
-    * Make the about->close button trigger the clicke even for about
-      this would allow toggle event handlers to be used. Do the same
-      for the new budget popup.
 
 # Current task
 

@@ -53,11 +53,6 @@ function start_new_budget() {
     $.totalStorage.deleteItem("budget_items");
 }
 
-function remove_budget_item(budget_item) {
-    console.log("removing budget item");
-    budget_item.remove();
-}
-
 function show_new_budget_box() {
     console.log("new budget button clicked");
     $("#new_budget_box").show();
@@ -109,8 +104,11 @@ function add_budget_item(no_delete_button, new_budget_item) {
     console.log("adding a budget item");
 
     if (no_delete_button) {
-        console.log("delete button not wanted");
-        new_budget_item.addClass("no_delete_button");
+        console.log("clear button wanted");
+        $(".delete_item_button", new_budget_item).click(function(){
+            console.log("clear item button clicked");
+            clear_budget_item(new_budget_item);
+        });
     } else {
         console.log("delete button wanted");
         //Add event handler to delete item button in the new budget item
@@ -128,6 +126,16 @@ function create_budget_item() {
     new_budget_item.removeAttr("id");
     new_budget_item.addClass("budget_item");
     return new_budget_item;
+}
+
+function clear_budget_item(budget_item) {
+    $(".item_text", budget_item).val("");
+    $(".item_value", budget_item).val("");
+}
+
+function remove_budget_item(budget_item) {
+    console.log("removing budget item");
+    budget_item.remove();
 }
 
 function calculate_total() {

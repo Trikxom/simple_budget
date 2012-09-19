@@ -2,9 +2,9 @@
     * Add animations with jQuery to make the app seem more responsive
 
 # Minor tasks
+    * Only add focus to items when add button is clicked
 
 # Current task
-    * Put focus on item_text when adding a new budget_item
 
 # Things to remember
     * There should always be one budget item so the fact that the first

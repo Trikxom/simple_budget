@@ -91,7 +91,7 @@ function show_about_box() {
     console.log("about button clicked");
     $("#about_box").show();
     //Save previous scrollTop value so we can scroll back to it after
-    var old_scrollTop = $("html, body").scrollTop();
+    var old_scrollTop = $("html, body").scrollTop() || $(window).scrollTop();
     console.log("old scrollTop: ", old_scrollTop);
     //Scroll to top so the about box can be seen
     scroll_to_top();
@@ -139,6 +139,9 @@ function add_budget_item(no_delete_button, new_budget_item) {
     }
 
     $("#budget_items").append(new_budget_item);
+    //This causes the page to scroll down to the new budget item
+    //and allows you to start typing right after adding a new item
+    focus_on(new_budget_item.find(".item_text"));
 }
 
 function create_budget_item() {
@@ -216,5 +219,14 @@ function scroll_to_top() {
 }
 
 function scroll_to(place_to_scroll_to) {
-    $("html, body").animate({scrollTop:place_to_scroll_to}, "slow");
+    console.log("window scrollTop " + $(window).scrollTop());
+    console.log("html, body scrollTop " + $("html, body").scrollTop());
+    console.log("html scrollTop " + $("html").scrollTop());
+    console.log("body scrollTop " + $("body").scrollTop());
+    console.log("scrolling to: " + place_to_scroll_to);
+    $("html, body").animate({scrollTop:place_to_scroll_to});
+}
+
+function focus_on(item_to_focus_on) {
+    item_to_focus_on.focus();
 }

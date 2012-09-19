@@ -5,7 +5,7 @@ $(document).ready(function() {
     var budget_items_loaded = load_budget_items();
     if (!budget_items_loaded) {
         //Put in a default budget item instead
-        add_budget_item(true);
+        add_budget_item();
     } else {
         //refresh total
         calculate_total();
@@ -34,7 +34,7 @@ $(document).ready(function() {
     //Add button stuff
     $("#add_budget_item").click(function(){
         console.log("add budget item button clicked");
-        add_budget_item(false, false, true);
+        add_budget_item(false, true);
     });
     //End add button stuff
 
@@ -49,11 +49,10 @@ $(document).ready(function() {
 
 function start_new_budget() {
     console.log("confirm new budget button clicked");
-    //code for starting a new budget should go here
     $(".budget_item").each(function(){
         remove_budget_item($(this));
     });
-    add_budget_item(true);
+    add_budget_item();
     hide_new_budget_box();
     //reset the budget total
     update_total(0);
@@ -113,9 +112,7 @@ function hide_about_box(resume_scroll) {
     $("#about_button").click(show_about_box)
 }
 
-function add_budget_item(no_delete_button, new_budget_item, focus_wanted) {
-    //Default value is false, delete button is wanted
-    no_delete_button = no_delete_button || false;
+function add_budget_item(new_budget_item, focus_wanted) {
     //Default value is a plain budget item
     //This allows for adding budget items that have already been created
     //and possibly populated with data
@@ -125,20 +122,11 @@ function add_budget_item(no_delete_button, new_budget_item, focus_wanted) {
 
     console.log("adding a budget item");
 
-    if (no_delete_button) {
-        console.log("clear button wanted");
-        $(".delete_item_button", new_budget_item).click(function(){
-            console.log("clear item button clicked");
-            clear_budget_item(new_budget_item);
-        });
-    } else {
-        console.log("delete button wanted");
-        //Add event handler to delete item button in the new budget item
-        $(".delete_item_button", new_budget_item).click(function(){
-            console.log("delete item button clicked");
-            remove_budget_item(new_budget_item);
-        });
-    }
+    //Add event handler to delete item button in the new budget item
+    $(".delete_item_button", new_budget_item).click(function(){
+        console.log("delete item button clicked");
+        remove_budget_item(new_budget_item);
+    });
 
     //Make new_budget_item invisible so it can be animated into view
     new_budget_item.css("display", "none");
@@ -170,10 +158,18 @@ function clear_budget_item(budget_item) {
 }
 
 function remove_budget_item(budget_item) {
-    console.log("removing budget item");
-    budget_item.hide("fast", function(){
-        budget_item.remove();
-    });
+    var num_budget_items_remaining = $(".budget_item").size();
+    console.log("number of items remaining", num_budget_items_remaining);
+
+    if (num_budget_items_remaining > 1) {
+        console.log("removing budget item");
+        budget_item.hide("fast", function(){
+            budget_item.remove();
+        });
+    } else {
+        console.log("last budget item, starting new budget");
+        start_new_budget();
+    }
 }
 
 function calculate_total() {
@@ -220,7 +216,7 @@ function load_budget_items() {
             $(".item_value", new_budget_item).val(budget_items[i].value);
             //if i is 0, it's the first budget item, that means it should
             //have no delete button
-            add_budget_item(i == 0, new_budget_item);
+            add_budget_item(new_budget_item);
         }
         return true;
     } else {

@@ -1,10 +1,6 @@
 # Major tasks
 
 # Minor tasks
-    * Allow the first item to be deleted. Instead of having a special first item
-      make all items delete-able but when the users tries to delete the last item
-      (leaving no remaining items) instead of deleting it, just clear it. Or start
-      a new budget.
 
 # Current task
 

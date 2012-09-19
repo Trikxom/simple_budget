@@ -140,7 +140,15 @@ function add_budget_item(no_delete_button, new_budget_item, focus_wanted) {
         });
     }
 
+    //Make new_budget_item invisible so it can be animated into view
+    new_budget_item.css("display", "none");
+
     $("#budget_items").append(new_budget_item);
+
+    //Animate new item into view
+    new_budget_item.show("slow");
+
+    //Add focus to button if required
     if (focus_wanted) {
         console.log("focus wanted");
         //This causes the page to scroll down to the new budget item

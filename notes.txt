@@ -4,6 +4,7 @@
 # Minor tasks
 
 # Current task
+    * Put focus on item_text when adding a new budget_item
 
 # Things to remember
     * There should always be one budget item so the fact that the first

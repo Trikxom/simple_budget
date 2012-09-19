@@ -66,6 +66,11 @@ header #new_budget_button {
     display:block;
 }
 
+/* Remove me */
+#budget_items {
+    padding-top:1000px;
+}
+
 #budget_items * {
     margin-right:0;
     margin-left:0;

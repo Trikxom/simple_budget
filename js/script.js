@@ -14,7 +14,11 @@ $(document).ready(function() {
 
     //New button stuff
     $("#new_budget_button").click(show_new_budget_box);
-    $("#cancel_new_budget_button").click(hide_new_budget_box);
+    $("#cancel_new_budget_button").click(function(){
+        console.log("cancel button clicked");
+        //This button acts as an alias for the #new_budget_button
+        $("#new_budget_button").trigger("click");
+    });
     $("#confirm_new_budget_button").click(start_new_budget);
     //End new button stuff
 
@@ -22,7 +26,8 @@ $(document).ready(function() {
     $("#about_button").click(show_about_box);
     $("#hide_about_box_button").click(function(){
         console.log("hide about button clicked");
-        hide_about_box();
+        //This button acts as an alias for the #about_button
+        $("#about_button").trigger("click");
     });
     //End about button stuff
 
@@ -59,17 +64,23 @@ function start_new_budget() {
 function show_new_budget_box() {
     console.log("new budget button clicked");
     $("#new_budget_box").show();
+    //Save previous scrollTop value so we can scroll back to it after
+    var old_scrollTop = $("html, body").scrollTop();
+    console.log("old scrollTop: ", old_scrollTop);
+    //Scroll to top so the about box can be seen
+    scroll_to_top();
 
     //Next time this button is clicked, hide the new budget box
     $("#new_budget_button").unbind("click");
     $("#new_budget_button").click(function(){
         console.log("new budget button clicked again");
-        hide_new_budget_box();
+        hide_new_budget_box(old_scrollTop);
     });
 }
 
-function hide_new_budget_box() {
+function hide_new_budget_box(resume_scroll) {
     $("#new_budget_box").hide();
+    scroll_to(resume_scroll);
 
     //Next time the new budget button is clicked, show the new budget box
     $("#new_budget_button").unbind("click");
@@ -79,17 +90,23 @@ function hide_new_budget_box() {
 function show_about_box() {
     console.log("about button clicked");
     $("#about_box").show();
+    //Save previous scrollTop value so we can scroll back to it after
+    var old_scrollTop = $("html, body").scrollTop();
+    console.log("old scrollTop: ", old_scrollTop);
+    //Scroll to top so the about box can be seen
+    scroll_to_top();
 
     //The next time this button is clicked, hide the about box
     $("#about_button").unbind("click");
     $("#about_button").click(function(){
         console.log("about button clicked again");
-        hide_about_box();
+        hide_about_box(old_scrollTop);
     })
 }
 
-function hide_about_box() {
+function hide_about_box(resume_scroll) {
     $("#about_box").hide();
+    scroll_to(resume_scroll);
 
     //The next time the user clicks the about button, show the about box
     $("#about_button").unbind("click");
@@ -192,4 +209,12 @@ function load_budget_items() {
         console.log("no items to load");
         return false;
     }
+}
+
+function scroll_to_top() {
+    scroll_to(0);
+}
+
+function scroll_to(place_to_scroll_to) {
+    $("html, body").animate({scrollTop:place_to_scroll_to}, "slow");
 }

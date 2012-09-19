@@ -35,6 +35,9 @@ $(document).ready(function() {
     $("#add_budget_item").click(function(){
         console.log("add budget item button clicked");
         add_budget_item();
+        //This causes the page to scroll down to the new budget item
+        //and allows you to start typing right after adding a new item
+        focus_on(new_budget_item.find(".item_text"));
     });
     //End add button stuff
 
@@ -139,9 +142,6 @@ function add_budget_item(no_delete_button, new_budget_item) {
     }
 
     $("#budget_items").append(new_budget_item);
-    //This causes the page to scroll down to the new budget item
-    //and allows you to start typing right after adding a new item
-    focus_on(new_budget_item.find(".item_text"));
 }
 
 function create_budget_item() {

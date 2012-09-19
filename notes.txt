@@ -2,7 +2,6 @@
     * Add animations with jQuery to make the app seem more responsive
 
 # Minor tasks
-    * Only add focus to items when add button is clicked
 
 # Current task
 

@@ -6,6 +6,9 @@ $(document).ready(function() {
     if (!budget_items_loaded) {
         //Put in a default budget item instead
         add_budget_item(true);
+    } else {
+        //refresh total
+        calculate_total();
     }
     //End init
 

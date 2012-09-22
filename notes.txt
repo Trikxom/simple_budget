@@ -1,6 +1,7 @@
 # Major tasks
 
 # Minor tasks
+    * Use to-do implementation of popups - no need for scrolling anymore!
 
 # Current task
 
